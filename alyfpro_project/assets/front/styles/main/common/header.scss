@@ -1,0 +1,49 @@
+header {
+  background-color: $main-background-color !important;
+
+
+}
+.logoimg{
+  width:8rem ;
+  height: auto;
+  margin-left: 2rem;
+
+
+
+}
+.navbar-expand-lg{
+  margin: 1px 0;
+
+}
+#navbarNav {
+  margin-right: 5rem;
+}
+#navbarNav ul li:not(:last-child) {
+  margin-right: 30px; /* Ajustez la marge à droite selon vos préférences */
+}
+#navbarNav ul li a {
+  color: $white;
+
+  font-size: 16px;
+  font-family: $heading-font;
+  font-weight: bold;
+}
+
+#navbarNav ul li a:hover{
+  text-decoration-line: underline;
+  color: $orange;
+  transition: all 0.2s ease-in-out;
+
+
+}
+#navbarNav ul li a:active {
+  color: $orange;
+  font-weight: bolder;
+}
+
+
+.container-fluid {
+  margin-right: 0.5rem; /* Supprimez la marge à droite du container */
+  margin-left: 0.5rem;  /* Supprimez la marge à gauche du container */
+  margin-top: 0;
+}
