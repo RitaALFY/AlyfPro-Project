@@ -3,6 +3,9 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
-  background-color: $white;
+  background-color: $main-background-color;
   height: 100vh;
+}
+.container-fluid{
+  width: 100%;
 }
