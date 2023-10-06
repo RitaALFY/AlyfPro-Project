@@ -16,4 +16,10 @@ class HomeController extends AbstractController
             'message' => 'coucou'
         ]);
     }
+
+    #[Route('/about', name: 'app_about')]
+    public function about()
+    {
+        return $this->render('front/pages/about.html.twig');
+    }
 }

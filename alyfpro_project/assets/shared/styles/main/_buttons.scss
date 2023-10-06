@@ -1,3 +1,20 @@
+
+.btn-gray{
+  background-color: $gray !important;
+  color: $black;
+  font-family: $subtitle-font;
+  text-align: center;
+  width: 12rem;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 20px;
+  padding: 1rem 1rem;
+
+
+}
+.btn-gray:hover{
+  background-color: $orange !important;
+}
 .btn-orange{
   background-color: $orange;
   color: $black;

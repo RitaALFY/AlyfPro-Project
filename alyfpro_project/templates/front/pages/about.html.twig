@@ -1,0 +1,55 @@
+{% extends 'front/base.html.twig' %}
+{% block body %}
+<section id="about">
+    <div class="text-gerant d-flex justify-content-between">
+
+        <p>
+            <i>"Acteur de la formation depuis 2004, Alyf a déjà permis à plus de 20 000 professionnels de tous horizons de progresser dans le domaine de l'IT.<br>
+            Notre offre est basée sur les compétences et expériences de nos consultants acquises sur le terrain.<br>
+                Les cursus que nous construisons sont dispensés par des consultants ou des managers confirmés.Nous développons des parcours sur mesure tenant compte des contextes précis imposés par nos clients".</i>
+            <br>
+           <span style="font-weight: bold; font-size: 14px;">Youssef Omari - Gérant</span>
+        </p>
+{#        <div class="logo-about">#}
+{#            <img src="{{ asset('images/icons/logoAlyfpro.gif') }}" alt="Logo Alyf" class="logoimg mr-3">#}
+{#        </div>#}
+    </div>
+
+
+
+
+
+        <div>
+            <p class="d-inline-flex gap-4">
+                <a class="btn btn-gray" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Infrastructure Service</a>
+                <button class="btn btn-gray" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Cybersecurity Service</button>
+                <button class="btn btn-gray" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Cloud Service</button>
+
+            </p>
+            <div class="row">
+                <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample1">
+                        <div class="card card-body">
+                            L’intégration d’infrastructures IT est au cœur de notre offre de services informatiques. Au fil des années, notre entreprise a bâti une véritable expertise dans ce domaine-clé. <br>
+                            Nous vous accompagnons ainsi dans vos projets d’intégration d’infrastructures informatiques complexes.                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample2">
+                        <div class="card card-body">
+                            La sécurité informatique est aujourd’hui une question brûlante et stratégique. Dans un monde où le digital règne, il est indispensable d’assurer la protection des données et des réseaux. <br>Les risques encourus peuvent être importants en cas de failles internes ou d’attaques extérieures : perte de données, arrêt de l’activité, etc.                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample3">
+                        <div class="card card-body">
+                            Les solutions Cloud d'Alyf sont conçues autour de nos clients et sont fournies sur la plateforme qui répond le mieux à leurs besoins.<br> Que vous cherchiez à résoudre des problèmes, à développer une stratégie, à utiliser des services managés ou à moderniser et sécuriser davantage vos applications et votre infrastructure.                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+</section>
+{% endblock %}
