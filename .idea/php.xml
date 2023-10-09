@@ -143,6 +143,13 @@
       <path value="$PROJECT_DIR$/alyfpro_project/vendor/symfony/expression-language" />
       <path value="$PROJECT_DIR$/alyfpro_project/vendor/psr/link" />
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/alyfpro_project/vendor/nelmio/alice" />
+      <path value="$PROJECT_DIR$/alyfpro_project/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/alyfpro_project/vendor/theofidry/alice-data-fixtures" />
+      <path value="$PROJECT_DIR$/alyfpro_project/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/alyfpro_project/vendor/hautelook/alice-bundle" />
+      <path value="$PROJECT_DIR$/alyfpro_project/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/alyfpro_project/vendor/knplabs/knp-paginator-bundle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
