@@ -1,0 +1,96 @@
+#services {
+  min-height: 600px;
+}
+.text-gerant{
+  padding-bottom: 2rem;
+}
+h4 {
+
+  color:$white;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  text-justify: distribute-all-lines;
+}
+.separator{
+  color: $white;
+
+  border-width: 2px;
+
+  animation: separator-width 2s ease-out forwards infinite;
+}
+@keyframes separator-width {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+
+}
+
+/*carousel */
+.carousel-container {
+
+  max-height: 400px !important;
+  overflow: hidden;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+}
+
+.carousel {
+  height: 100%;
+}
+
+.carousel-item{
+  background-color: $gray;
+  height: 300px !important;
+  padding-top: 2rem;
+}
+
+.circle-icon {
+  width: 60px;
+  height: 60px;
+  background-color: $main-background-color;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.circle-icon i {
+  font-size: 24px;
+  color:$gray;
+}
+
+.carousel-caption{
+  padding-top: 0;
+}
+.carousel-caption p,h5{
+  color:$black;
+}
+.carousel-caption h5{
+  padding-top: 0;
+}
+/* colorerr les icones prev et next  */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: $orange;
+}
+
+
+.carousel-indicators .active {
+  background-color: $orange;
+}
+
+
+.carousel-control-prev-icon::before {
+  font-size: 24px;
+}
+
+.carousel-control-next-icon::before {
+  font-size: 24px;
+}
