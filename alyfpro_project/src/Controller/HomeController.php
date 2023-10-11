@@ -36,4 +36,10 @@ class HomeController extends AbstractController
             'imageNames' => $imageNames,
         ]);
     }
+
+//    #[Route('/catalogue', name: 'app_catalogue')]
+//    public function catalogue(): Response
+//    {
+//        return $this->render('front/pages/catalogue.html.twig');
+//    }
 }

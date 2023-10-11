@@ -22,7 +22,7 @@
                             <a class="nav-link {% if app.request.attributes.get('_route') == 'app_about' %}active{% endif %}" href="{{ path('app_about') }}">A propos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link{% if app.request.attributes.get('_route') == 'app_catalogue' %}active{% endif %}" href="#">Catalogue</a>
+                            <a class="nav-link {% if app.request.attributes.get('_route') == 'app_catalogue' %}active{% endif %}" href="{{ path('app_catalogue')}}">Catalogue</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {% if app.request.attributes.get('_route') == 'app_references' %}active{% endif %}" href="{{ path('app_references') }}">Références</a>

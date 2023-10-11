@@ -1,0 +1,22 @@
+App\Entity\Category:
+  category_0:
+    title: 'Post de travail'
+    image: '/images/catalogue/post.jpg'
+  category_1:
+    title: 'Linux'
+    image: '/images/catalogue/linux.png'
+  category_2:
+    title: 'Windows serveur'
+    image: '/images/catalogue/wserve.png'
+  category_3:
+    title: 'Messagerie'
+    image: '/images/catalogue/message.jpg'
+  category_4:
+    title: 'Microsoft 365'
+    image: '/images/catalogue/micro.png'
+  category_5:
+    title: 'DevOps'
+    image: '/images/catalogue/devops.png'
+  category_6:
+    title: 'Cloud'
+    image: '/images/catalogue/cloud.png'

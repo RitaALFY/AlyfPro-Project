@@ -46,3 +46,25 @@
 }
 
 
+/*btn-blue*/
+.btn-blue{
+  background-color: $main-background-color;
+  color: $white;
+  font-family: $heading-font;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  //width: 60%;
+
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 10px;
+  transition: box-shadow .2s;
+  overflow: hidden;
+  pointer-events: auto;
+}
+.btn-orange:hover{
+  box-shadow: rgba(255, 120, 0, ) 0 6px 16px;
+  border: 1px solid $orange;
+  color:$white;
+}
