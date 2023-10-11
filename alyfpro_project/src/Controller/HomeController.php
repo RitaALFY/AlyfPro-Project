@@ -31,7 +31,7 @@ class HomeController extends AbstractController
     #[Route('/references', name: 'app_references')]
     public function reference(): Response
     {
-        $imageNames = ['m2i.png', 'isitech.png', 'president.png', 'delcoupe.png', 'oip.png','orsys.png','ort.png','fitech.png', 'mga.png', 'edu.png'];
+        $imageNames = [  'mga.png','m2i.png','isitech.png','president.png', 'delcoupe.png', 'oip.png','orsys.png','fit.png','edu.png','ortsm.png' ];
         return $this->render('front/pages/references.html.twig', [
             'imageNames' => $imageNames,
         ]);

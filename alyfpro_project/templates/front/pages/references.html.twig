@@ -1,30 +1,65 @@
 {% extends 'front/base.html.twig' %}
 {% block body %}
     <section id="references" class="text-center">
-        <div class="boucle-ref">
-        <div class="row">
-            <div class="col-md-12 pt-5">
-                <div class="row justify-content-center">
-                    {% for i in 0..4 %}
-                        <div class="col-md-2">
-                            <img src="{{ asset('images/ref/' ~ imageNames[i]) }}" alt="Image {{ i }}" class="img-fluid mb-3">
-                        </div>
-                    {% endfor %}
+{#        <div class="boucle-ref">#}
+{#        <div class="row">#}
+{#            <div class="col-md-12 pt-5">#}
+{#                <div class="row justify-content-center">#}
+{#                    {% for i in 0..4 %}#}
+{#                        <div class="col-md-2">#}
+{#                            <img src="{{ asset('images/ref/' ~ imageNames[i]) }} " alt="Image {{ i }}" class="img-fluid mb-3" height="100" width="250">#}
+{#                        </div>#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="row">#}
+{#            <div class="col-md-12 pt-2">#}
+{#                <div class="row justify-content-center">#}
+{#                    {% for i in 5..imageNames|length-1 %}#}
+{#                        <div class="col-md-2">#}
+{#                            <img src="{{ asset('images/ref/' ~ imageNames[i]) }}" alt="Image {{ i }}" class="img-fluid mb-3">#}
+{#                        </div>#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        </div>#}
+{# 2 methode defilé animation#}
+        <div class="sm-phrase pt-3">
+            <h3>Nos partenaires nous font confiance</h3>
+        </div>
+        <div class="slider">
+
+            <div class="slide-container">
+
+                {% for imageName in imageNames %}
+                <div class="slide pt-5 pb-5">
+                    <img src="{{ asset('images/ref/' ~ imageName)}}" height=50% width=100% alt="image" >
+
                 </div>
+                {% endfor %}
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12 pt-2">
-                <div class="row justify-content-center">
-                    {% for i in 5..imageNames|length-1 %}
-                        <div class="col-md-2">
-                            <img src="{{ asset('images/ref/' ~ imageNames[i]) }}" alt="Image {{ i }}" class="img-fluid mb-3">
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        </div>
+
+{#        <div class="container logos">#}
+{#            <div class="sm-phrase pt-1">#}
+{#                <h3>Nos partenaires nous font confiance</h3>#}
+{#            </div>#}
+{#            {% for row in imageNames|batch(4) %}#}
+{#                <div class="row mb-4">#}
+{#                    {% for imageName in row %}#}
+{#                        <div class="col-lg-3 col-md-6 col-sm-12 pb-5">#}
+{#                            <div class="slide pt-5 ">#}
+{#                                <img src="{{ asset('images/ref/' ~ imageName)}}" height=40% width="80%" alt="Logo" class="img-fluid">#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+
+
     </section>
 
 

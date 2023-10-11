@@ -1,4 +1,56 @@
 #references{
-  background-color: $white;
+
   border-bottom: 1px solid $main-background-color;
+  background-color: $white;
+  //align-items: center;
+  //display: flex;
+  //justify-content: center;
+}
+.sm-phrase{
+  color:$main-background-color;
+  font-weight: bold;
+  font-family: $subtitle-font;
+  font-size: 14px;
+}
+//.img-fluid {
+//  max-width: 500px!important;
+//  height: 200px !important;
+//  transition: box-shadow .2s;
+//  overflow: hidden;
+//  border-radius: 7px;
+//  box-shadow: rgba(9, 56, 66, 0.5) 0 6px 15px;
+//
+//}
+//.img-fluid:hover {
+//
+//  transition: ease-in-out ;
+//  box-shadow: rgba(255,153 , 0, 0.5) 0 6px 10px;
+//}
+
+$animationSpeed: 40s;
+.slider {
+
+  display: flex;
+  overflow: hidden;
+  width: 200%;
+  height:200%;
+}
+
+.slide-container {
+  display: flex;
+  animation: scroll 30s linear infinite;
+}
+
+.slide {
+
+  margin-right: 50px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }

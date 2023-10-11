@@ -1,5 +1,5 @@
 footer{
-  background-color: $main-background-color;
+  background: linear-gradient(to bottom, $main-background-color, $black);
   color:$white;
   font-family: $text-font;
   width: 100%;
@@ -34,8 +34,4 @@ footer a:hover {
   background-blend-mode: darken;
 
 }
-.navbar-toggler{
-  background-color: $orange;
-  border-color: $orange;
-  color:$white
-}
+
