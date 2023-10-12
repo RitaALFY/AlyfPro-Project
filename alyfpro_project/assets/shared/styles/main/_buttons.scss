@@ -54,17 +54,20 @@
   font-weight: bold;
   font-size: 14px;
   text-align: center;
-  //width: 60%;
-
+  width: 60%;
   cursor: pointer;
   display: inline-block;
   border-radius: 10px;
   transition: box-shadow .2s;
   overflow: hidden;
   pointer-events: auto;
+  margin-left: 3rem;
+
+
 }
-.btn-orange:hover{
+.btn-blue:hover{
   box-shadow: rgba(255, 120, 0, ) 0 6px 16px;
   border: 1px solid $orange;
-  color:$white;
+  color:$main-background-color;
+  background-color: $gray;
 }

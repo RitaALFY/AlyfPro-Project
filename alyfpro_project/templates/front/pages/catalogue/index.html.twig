@@ -9,7 +9,7 @@
                 {% for category in categories %}
                     <div class="col-md-3 mb-5"> {# Utilisez la classe "col-md-3" pour avoir 4 cartes par ligne sur un écran de taille moyenne (md) #}
                         <div class="card">
-                            <img src=" {{ category.image }}" alt="{{ category.title }}" class="card-img-top" height="200px" width="100px">
+                            <img src=" {{ category.image }}" alt="{{ category.title }}" class="card-img-top" height="250px" width="100px">
 {#                            <div class="card-body">#}
 {#                                <h5 class="card-title">{{ category.title }}</h5>#}
                                 <a href="{{ path('app_catalogue_show', {'id': category.id}) }}" class="btn btn-blue">{{ category.title }}</a>

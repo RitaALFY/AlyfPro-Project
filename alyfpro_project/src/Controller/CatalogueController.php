@@ -32,7 +32,7 @@ class CatalogueController extends AbstractController
         }
 
         return $this->render('front/pages/catalogue/listShow.html.twig', [
-            'catalogue' => $catalogue,
+            'category' => $catalogue,
         ]);
     }
 }
