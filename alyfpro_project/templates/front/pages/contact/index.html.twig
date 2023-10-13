@@ -2,22 +2,33 @@
 {% block body %}
 {#    appelle les flash messages#}
 <div class="container">
-    {% for label, messages in app.flashes%}
-        {% for message in messages %}
-        <div class="alert alert-{{ label}}" role="alert" id="alert-success">
+{#    {% for label, messages in app.flashes%}#}
+{#        {% for message in messages %}#}
+{#        <div class="alert alert-{{ label}}" role="alert" id="alert-success">#}
 {#            j'ai ajouté X pour user le ferme #}
 {#            <button type="button" class="close" data-dismiss="alert" aria-label="Close">#}
 {#                <span aria-hidden="true">&times;</span>#}
 {#            </button>#}
-            {{ message|raw}} <i class="fas fa-check-circle text-success"></i>
+{#            {{ message|raw}} <i class="fas fa-check-circle text-success"></i>#}
+{#        </div>#}
+{#    {% endfor%}#}
+{# {% endfor%}#}
+    {% for flash_message in app.flashes('success') %}
+        <div class="alert alert-success" id="alert-success">
+            <i class="fa fa-check-circle text-success"></i> {{ flash_message }}
         </div>
-    {% endfor%}
- {% endfor%}
+    {% endfor %}
+    {% for flash_message in app.flashes('danger') %}
+        <div class="alert alert-danger" id="alert-echec">
+            <i class="fa fa-times"></i> {{ flash_message }}
+        </div>
+    {% endfor %}
 </div>
     <section id="contact" class=" d-flex justify-content-between col-11">
 
         <div class="left-side m-lg-4">
             {{ form_start(form) }}
+            <div class="input-wrapper">
             <div class="col-lg-6 col-md-8 col-sm-12 mx-auto">
                 <div class="my-4">
                     {{ form_row(form.NomComplet) }}
@@ -34,6 +45,12 @@
                 </div>
             </div>
             <button id="envoyer" class="btn-orange small" type="submit">Envoyer</button>
+            <div class="col-lg-6 col-md-8 col-sm-12 mx-auto">
+                <div class="my-4">
+                    {{ form_row(form.captcha) }}
+                </div>
+            </div>
+            </div>
             {{ form_end(form) }}
         </div>
 

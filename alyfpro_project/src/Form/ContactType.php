@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use VictorPrdh\RecaptchaBundle\Form\ReCaptchaType;
 
 class ContactType extends AbstractType
 {
@@ -16,7 +17,8 @@ class ContactType extends AbstractType
         $builder
             ->add('NomComplet', TextType::class)
             ->add('Email', EmailType::class)
-            ->add('VotreMessage', TextareaType::class);
+            ->add('VotreMessage', TextareaType::class)
+            ->add('captcha', ReCaptchaType::class);
 
     }
 
