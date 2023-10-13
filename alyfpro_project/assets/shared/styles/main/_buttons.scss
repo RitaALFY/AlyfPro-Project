@@ -15,6 +15,7 @@
 .btn-gray:hover{
   background-color: $orange !important;
 }
+/*btn-orange*/
 .btn-orange{
   background-color: $orange;
   color: $black;
@@ -70,4 +71,31 @@
   border: 1px solid $orange;
   color:$main-background-color;
   background-color: $gray;
+}
+
+/*btn-orange small one*/
+.btn-orange.small{
+
+  background-color: $orange;
+  color: $black;
+  font-family: $heading-font;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  width:100px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 6px;
+
+  transition: box-shadow .2s;
+  overflow: hidden;
+  pointer-events: auto;
+  //text-transform: uppercase;
+}
+
+.btn-orange.small:hover{
+  box-shadow: rgba(253, 80, 0, 0.5) 0 6px 16px;
+  border: 1px solid $orange;
+  color:$white;
+  background-color: transparent;
 }

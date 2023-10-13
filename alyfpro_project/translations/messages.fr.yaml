@@ -1,0 +1,4 @@
+pages:
+  contact:
+    success_submit: 'Votre message a été bien envoyé '
+    failure_submit: 'Échec de l''envoi du message. Veuillez réessayer.'

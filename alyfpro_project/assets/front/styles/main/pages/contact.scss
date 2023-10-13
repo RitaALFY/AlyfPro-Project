@@ -1,0 +1,97 @@
+.circle-icon.orange{
+  width: 60px;
+  height: 60px;
+  background-color: $orange;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.circle-icon.orange i {
+  font-size: 24px;
+  color:$black;
+
+}
+.right-side p{
+  color:$white;
+  font-weight: bold;
+
+}
+.right-side a{
+  text-decoration: none;
+  color: $white;
+  font-weight: bold;
+  transition: ease-in;
+}
+.right-side a:hover{
+  text-decoration:underline;
+  color: $orange;
+  font-weight: bold;
+
+}
+.circle-icon.social{
+
+  width: 60px;
+  height: 60px;
+  background-color: $main-background-color;
+  border-radius: 50%;
+  //border: solid 0.5px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.circle-icon.social i {
+  font-size: 40px;
+  color:dodgerblue;
+
+}
+.circle-icon.social:hover{
+  border: solid 0.5px $orange;
+  box-shadow: rgba(255, 120, 0, ) 0 6px 16px;
+
+
+}
+
+label{
+  color: $white;
+  font-weight: bold;
+  font-size: 14px;
+
+}
+input, textarea{
+  background-color: $gray;
+  border-radius: 3px;
+
+}
+input, textarea{
+  background-color: $gray;
+  border-radius: 3px;
+  width: 300px;
+
+}
+textarea:hover{
+  border: solid 0.5px $orange;
+  box-shadow: rgba(255, 120, 0, ) 0 6px 16px;
+}
+input:hover{
+  border: solid 0.5px $orange;
+  box-shadow: rgba(255, 120, 0, ) 0 6px 16px;
+}
+.block-info{
+  padding-right: 2rem;
+}
+
+.alert.alert-success{
+  border: solid 0.5px green;
+  box-shadow: rgba(50, 200, 0, ) 0 6px 16px;
+}
+form{
+ text-align: center;
+}
+#envoyer{
+  margin-left: 5rem;
+}
