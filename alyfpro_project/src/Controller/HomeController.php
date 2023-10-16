@@ -11,9 +11,11 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
+        $imageNames = [  'mga.png','m2i.png','isitech.png','president.png', 'delcoupe.png', 'oip.png','orsys.png','fit.png','edu.png','ortsm.png' ];
+
         return $this->render('front/pages/home.html.twig', [
             'controller_name' => 'HomeController',
-            'message' => 'coucou'
+            'imageNames' => $imageNames,
         ]);
     }
 
@@ -28,14 +30,14 @@ class HomeController extends AbstractController
     {
         return $this->render('front/pages/service.html.twig');
     }
-    #[Route('/references', name: 'app_references')]
-    public function reference(): Response
-    {
-        $imageNames = [  'mga.png','m2i.png','isitech.png','president.png', 'delcoupe.png', 'oip.png','orsys.png','fit.png','edu.png','ortsm.png' ];
-        return $this->render('front/pages/references.html.twig', [
-            'imageNames' => $imageNames,
-        ]);
-    }
+//    #[Route('/references', name: 'app_references')]
+//    public function reference(): Response
+//    {
+//        $imageNames = [  'mga.png','m2i.png','isitech.png','president.png', 'delcoupe.png', 'oip.png','orsys.png','fit.png','edu.png','ortsm.png' ];
+//        return $this->render('front/pages/references.html.twig', [
+//            'imageNames' => $imageNames,
+//        ]);
+//    }
 
 //    #[Route('/catalogue', name: 'app_catalogue')]
 //    public function catalogue(): Response

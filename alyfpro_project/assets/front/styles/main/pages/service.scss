@@ -1,9 +1,13 @@
 #services {
+  padding-top: 2rem;
   min-height: 600px;
 }
-.text-gerant{
+ .text-gerant{
   padding-bottom: 2rem;
+  padding-top: 4rem;
+  width: 90%;
 }
+
 h4 {
 
   color:$white;
@@ -12,22 +16,30 @@ h4 {
   text-align: center;
   text-justify: distribute-all-lines;
 }
+.text-gerant p {
+  text-justify: inter-word; /* Améliore la justification en gérant correctement les espaces intermots */
+  line-height: 1.6; /* Ajuste l'espacement entre les lignes pour une meilleure lisibilité */
+  margin: 0 0 1rem;
+}
+
 .separator{
-  color: $white;
 
-  border-width: 2px;
+  border: none;
+  height: 2px;
+  background-color: $orange;
+  margin: 1rem 0;
 
-  animation: separator-width 2s ease-out forwards infinite;
+  //animation: separator-width 2s ease-out forwards infinite;
 }
-@keyframes separator-width {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
+//@keyframes separator-width {
+//  0% {
+//    width: 0;
+//  }
+//  100% {
+//    width: 100%;
+//  }
 
-}
+
 
 /*carousel */
 .carousel-container {
@@ -38,10 +50,15 @@ h4 {
   margin-left: auto;
   margin-right: auto;
   border-radius: 15px;
+  padding-bottom: 1rem;
+
+  justify-content: center; /* Centre le contenu horizontalement */
+  align-items: center;
 }
 
 .carousel {
   height: 100%;
+  border-radius: 10px;
 }
 
 .carousel-item{
@@ -93,4 +110,7 @@ h4 {
 
 .carousel-control-next-icon::before {
   font-size: 24px;
+}
+.text-gerant .btn {
+  margin-bottom: 4rem;
 }

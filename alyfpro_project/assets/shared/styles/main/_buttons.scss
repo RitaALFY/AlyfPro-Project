@@ -41,7 +41,7 @@
 }
 .btns
 {
-  padding: 15rem 10rem;
+  padding: 8rem 10rem;
 
 
 }
@@ -94,6 +94,32 @@
 }
 
 .btn-orange.small:hover{
+  box-shadow: rgba(253, 80, 0, 0.5) 0 6px 16px;
+  border: 1px solid $orange;
+  color:$white;
+  background-color: transparent;
+}
+
+
+/*btn back*/
+.btn-back{
+  background-color: $orange;
+  color: $black;
+  font-family: $heading-font;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  width:100px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 6px;
+
+  transition: box-shadow .2s;
+  overflow: hidden;
+  pointer-events: auto;
+  margin-bottom: 5rem;
+}
+.btn-back:hover{
   box-shadow: rgba(253, 80, 0, 0.5) 0 6px 16px;
   border: 1px solid $orange;
   color:$white;

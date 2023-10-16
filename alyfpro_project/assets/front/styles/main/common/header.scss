@@ -4,8 +4,8 @@ header {
 
 }
 .logoimg{
-  width:8rem ;
-  height: auto;
+  //width:8rem ;
+  //height: auto;
   margin-left: 2rem;
 
 
@@ -19,7 +19,7 @@ header {
   margin-right: 5rem;
 }
 #navbarNav ul li:not(:last-child) {
-  margin-right: 30px; /* Ajustez la marge à droite selon vos préférences */
+  margin-right: 30px;
 }
 #navbarNav ul li a {
   color: $white;
@@ -57,4 +57,8 @@ header {
   background-color: $orange;
   border-color: $orange;
   color:$white
+}
+
+.separator-pipe{
+  color:$white;
 }

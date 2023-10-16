@@ -1,11 +1,12 @@
-footer{
-  background: linear-gradient(to bottom, $main-background-color, $black);
+
+
+footer {
   color:$white;
   font-family: $text-font;
   width: 100%;
   font-size: 12px;
   //padding-top: 1rem;
-  padding-right: 3rem;
+  padding-right: 0;
   padding-left: 0;
 
 }
@@ -34,4 +35,8 @@ footer a:hover {
   background-blend-mode: darken;
 
 }
-
+.foot-light{
+  background-color: $gray;
+  padding-right: 2rem;
+padding-bottom: 1rem;
+}

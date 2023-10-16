@@ -1,5 +1,7 @@
 #home{
+  //background-image:  linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url('../../../../../public/images/general/hand (1).jpg');
   background-image: url('../../../../../public/images/general/hand.jpg');
+
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -7,5 +9,7 @@
   margin-top: 0;
   height: 500px;
   width: 100%;
+  padding-top: .6rem;
+  padding-bottom: 12rem;
 
 }

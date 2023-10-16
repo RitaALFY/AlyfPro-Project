@@ -1,9 +1,9 @@
-<header style="height: 9rem;">
+<header style="height: 7.5rem;" >
 
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ path('app_home') }}">
-                    <img src="{{ asset('images/icons/1logo.gif') }}" alt="Logo Alyf" class="logoimg mr-3">
+                    <img src="{{ asset('images/icons/logo2.png') }}" alt="Logo Alyf" class="logoimg mr-3 " style="max-height: 6.5rem;" width="auto">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,20 +16,31 @@
                             <a class="nav-link {% if app.request.attributes.get('_route') == 'app_home' %}active{% endif %}" href="{{ path('app_home') }}">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if app.request.attributes.get('_route') == 'app_services' %}active{% endif %}" href="{{ path('app_services') }}">Nos Services</a>
+                            <a class="nav-link {% if app.request.attributes.get('_route') == 'app_services' %}active{% endif %}" href="{{ path('app_services') }}">Services</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if app.request.attributes.get('_route') == 'app_about' %}active{% endif %}" href="{{ path('app_about') }}">A propos</a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link {% if app.request.attributes.get('_route') == 'app_catalogue' %}active{% endif %}" href="{{ path('app_catalogue')}}">Catalogue</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if app.request.attributes.get('_route') == 'app_references' %}active{% endif %}" href="{{ path('app_references') }}">Références</a>
+                            <a class="nav-link {% if app.request.attributes.get('_route') == 'app_about' %}active{% endif %}" href="{{ path('app_about') }}">A propos</a>
                         </li>
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link {% if app.request.attributes.get('_route') == 'app_references' %}active{% endif %}" href="{{ path('app_references') }}">Références</a>#}
+{#                        </li>#}
                         <li class="nav-item">
                             <a class="nav-link {% if app.request.attributes.get('_route') == 'app_contact' %}active{% endif %}" href="{{path('app_contact')}}">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <span class="nav-link separator-pipe">|</span>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-user-check"></i>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </div>

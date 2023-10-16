@@ -5,6 +5,10 @@ body {
   text-align: center;
   background-color: $main-background-color;
   height: 100vh;
+  scroll-padding-top:1.25rem;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0,0,0);
 }
 .container-fluid{
   width: 100%;
@@ -20,4 +24,50 @@ h4{
   font-weight: bold;
   font-family: $subtitle-font;
   font-size: 16px;
+}
+h5{
+  color: $main-background-color !important;
+  font-family: $subtitle-font;
+  font-weight: bold;
+
+}
+h1 {
+  color: $white;
+  font-weight: bold;
+  font-family: $heading-font;
+}
+
+.titre-slogan {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.titre-slogan span {
+  display: inline-block;
+  animation: slidein 5s infinite;
+}
+
+.titre-slogan span span {
+  display: inline-block;
+  animation: none; /* Désactive l'animation du contenu du span contenant "Bienvenue" */
+}
+
+@keyframes slidein {
+  0% {
+    margin-left: -750px;
+  }
+  20% {
+    margin-left: -750px;
+  }
+  35% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+
+h2{
+  color:$white;
 }
