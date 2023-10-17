@@ -71,3 +71,18 @@ h1 {
 h2{
   color:$white;
 }
+//pour ne pas aller brutement up de la page home
+html {
+  scroll-behavior: smooth;
+}
+
+.circle-img{
+  width: 100px;
+  height: 100px;
+  background-color: $main-background-color;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}

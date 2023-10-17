@@ -41,7 +41,7 @@
 }
 .btns
 {
-  padding: 8rem 10rem;
+  padding: 5rem 10rem;
 
 
 }
@@ -124,4 +124,25 @@
   border: 1px solid $orange;
   color:$white;
   background-color: transparent;
+
 }
+/*btn to up */
+
+
+#scroll-top-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: $orange;
+  color: $black;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+
+}
+
+#scroll-top-button.hidden {
+  display: none;
+}
+
