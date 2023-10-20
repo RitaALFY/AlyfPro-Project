@@ -11,7 +11,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
-        $imageNames = [  'mga.png','m2i.png','isitech.png','president.png', 'delcoupe.png', 'oip.png','orsys.png','fit.png','edu.png','ortsm.png' ];
+        $imageNames = [  'mga.png','m2i.png','isitech.png','president.png', 'delcoupe.png', 'oip.png','orsys.png','fit.png','edu.png','ort.png' ];
 
         return $this->render('front/pages/home.html.twig', [
             'controller_name' => 'HomeController',
