@@ -24,28 +24,35 @@
         </div>
     {% endfor %}
 </div>
-    <section id="contact" class=" d-flex justify-content-between col-11">
-
+    <section id="contact" >
+<div class=" d-flex justify-content-between col-11">
         <div class="left-side m-lg-4">
             {{ form_start(form) }}
             <div class="input-wrapper">
-            <div class="col-lg-6 col-md-8 col-sm-12 mx-auto">
+            <div class="col-lg-6 col-md-8 col-sm-12 mx-auto text-lg-start">
                 <div class="my-4">
+
                     {{ form_row(form.NomComplet) }}
                 </div>
             </div>
-            <div class="col-lg-6 col-md-8 col-sm-12 mx-auto">
+            <div class="col-lg-6 col-md-8 col-sm-12 mx-auto text-lg-start">
                 <div class="my-4">
+
                     {{ form_row(form.Email) }}
                 </div>
             </div>
-            <div class="col-lg-6 col-md-8 col-sm-12 mx-auto">
+                <div class="col-lg-6 col-md-8 col-sm-12 mx-auto text-lg-start">
+                    <div class="my-4">
+                        {{ form_row(form.Objet) }}
+                    </div>
+                </div>
+            <div class="col-lg-6 col-md-8 col-sm-12 mx-auto text-lg-start">
                 <div class="my-4">
                     {{ form_row(form.VotreMessage) }}
                 </div>
             </div>
             <button id="envoyer" class="btn-orange small" type="submit">Envoyer</button>
-            <div class="col-lg-6 col-md-8 col-sm-12 mx-auto">
+            <div class="col-lg-6 col-md-8 col-sm-12 mx-auto text-center">
                 <div class="my-4">
                     {{ form_row(form.captcha) }}
                 </div>
@@ -55,9 +62,9 @@
         </div>
 
         <div class="right-side">
-            <h4 class="pb-5 pt-3"> Restons en contact !</h4>
-            <div class="d-flex justify-content-between">
-                <div class="block-info">
+            <h4 class="pb-5 pt-5"> Restons en contact !</h4>
+            <div class="d-flex justify-content-between ">
+                <div class="block-info ">
                     <div class="circle-icon orange">
                         <i class="fas fa-location-dot"></i>
                     </div>
@@ -80,6 +87,6 @@
                 <a href="https://www.linkedin.com/in/alyf-sarl-a63895230/"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
-
+</div>
     </section>
 {% endblock %}

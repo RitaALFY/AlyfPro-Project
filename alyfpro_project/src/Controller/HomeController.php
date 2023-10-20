@@ -39,16 +39,5 @@ class HomeController extends AbstractController
 //        ]);
 //    }
 
-//    #[Route('/catalogue', name: 'app_catalogue')]
-//    public function catalogue(): Response
-//    {
-//        return $this->render('front/pages/catalogue.html.twig');
-//    }
 
-
-//    #[Route('/contact', name: 'app_contact')]
-//    public function contact(): Response
-//    {
-//        return $this->render('front/pages/contact.html.twig');
-//    }
 }

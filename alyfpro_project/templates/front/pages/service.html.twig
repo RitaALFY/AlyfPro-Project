@@ -1,14 +1,15 @@
 {% extends 'front/base.html.twig' %}
 {% block body %}
-    <section id="services">
-        <div class="text-gerant">
-            <h4>Besoin d’une société informatique sur Lyon et sa région ?</h4> <hr class="separator">
-            <p>Alyf répond aux exigences des PME et ETI avec une expérience de plus de 20 ans.
-                Nous vous accompagnons dans la maintenance, l’assistance aux utilisateurs, la sécurité et l’évolution de votre parc informatique grâce à un interlocuteur technique dédié, qui garantit un service réactif.
+    <section id="services ">
+        <div class="container">
+            <div class="text-gerant">
+                <h4>Besoin d’une société informatique sur Lyon et sa région ?</h4> <hr class="separator">
+                <p>Alyf répond aux exigences des PME et ETI avec une expérience de plus de 20 ans.<br>
+                    Nous vous accompagnons dans la maintenance, l’assistance aux utilisateurs, la sécurité et l’évolution de votre parc informatique grâce à un interlocuteur technique dédié, qui garantit un service réactif.
                     <br><br>
-                Notre entreprise de conseil informatique peut également vous accompagner sur des problématiques stratégiques telles que la sécurité des données et des réseaux, la gestion des données ou la gestion du parc informatique, l’infrastructure cloud, la virtualisation ou la mise en place d’outils performants.</p>
+                    Notre entreprise de conseil informatique peut également vous accompagner sur des problématiques stratégiques telles que la sécurité des données et des réseaux, la gestion des données ou la gestion du parc informatique, l’infrastructure cloud, la virtualisation ou la mise en place d’outils performants.</p>
+            </div>
         </div>
-
         <div class="carousel-container">
             <div id="carouselExampleCaptions" class="carousel slide " data-ride="carousel">
                 <div class="carousel-indicators">
@@ -25,7 +26,7 @@
                         </div>
                         <div class="carousel-caption d-md-block h-400">
                             <h5>Formation Intra entreprise</h5><br>
-                            <p>La formation de votre choix, à la date de votre choix dispensée dans votre organisation pour vos collaborateurs. des dizaines de formations disponibles</p>
+                            <p>La formation de votre choix, à la date de votre choix dispensée dans votre organisation pour vos collaborateurs. des dizaines de formations disponibles.</p>
                         </div>
                     </div>
                     <div class="carousel-item ">
@@ -70,5 +71,6 @@
         <div class="pt-3">
             <a class="btn btn-lg btn-orange custom-btn" href="{{path('app_contact')}}" role="button">Contact</a>
         </div>
+
     </section>
 {% endblock %}

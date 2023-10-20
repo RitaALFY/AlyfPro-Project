@@ -2,16 +2,16 @@
 {% block body %}
     <section id="catalogue">
         <div>
-            <h4 class="pt-2 pb-3">Catalogue</h4>
+            <h4 class="pt-3 pb-5" style="font-size: 1.3em">Découvrez notre Catalogue</h4>
         </div>
 <div class="container">
             <div class="row">
-                {% for category in categories %}
-                    <div class="col-md-4 col-sm-6 col-xs-12 mb-2"> {# Utilisez la classe "col-md-3" pour avoir 4 cartes par ligne sur un écran de taille moyenne (md) #}
+                {% for category in categories|reverse%}
+                    <div class="col-md-4 col-sm-6 col-xs-12 mb-5">
                         <div class="card catalogue">
                             <div class="cover item">
                                 <h6 class="h-catalogue">{{ category.title }}</h6>
-                                <img src=" {{ category.image }}" alt="{{ category.title }}" class="card-img-top" height="300"  width="auto" >
+                                <img src=" {{ category.image }}" alt="{{ category.title }}" class="card-img-top" height="225"  width="300" >
                                 <div class="card-back">
                                     <a href="{{ path('app_catalogue_show', {'id': category.id}) }}" >{{ category.title }}</a>
                                 </div>

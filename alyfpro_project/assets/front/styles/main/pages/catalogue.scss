@@ -2,11 +2,11 @@ $transition-time: 2.3s;
 
 .card.catalogue {
   position: relative;
-  height: 400px;
-  width: 100%;
+  height: 300px;
+  width: 300px;
   margin: 10px 0;
   transition: ease all $transition-time;
-  perspective: 1200px;
+  perspective: 600px;
   background-color: $gray-dark;
 
   &:hover {
@@ -71,16 +71,17 @@ $transition-time: 2.3s;
     }
   }
   .h-catalogue{
-      font-weight: 300;
+      font-weight: bold;
       position: absolute;
       bottom: 55px;
-      left: 50px;
+      left: 40px;
       color: white;
       transform-style: preserve-3d;
       transition: ease all $transition-time;
       z-index:3;
-      font-size: 3em;
+      font-size: 2em;
       transform: translateZ(0px);
+      text-align: left;
     }
 
 
@@ -104,16 +105,16 @@ $transition-time: 2.3s;
         background: transparent;
         border: 1px solid white;
         font-weight: 200;
-        font-size: 1.3em;
+        font-size: 1.2em;
         color: white;
-        padding: 14px 32px;
+        padding: 10px 32px;
         outline: none;
         text-decoration: none;
         border-radius: 5px;
 
         &:hover {
           background-color: white;
-          color: #0b0f08;
+          color: $black;
         }
       }
     }

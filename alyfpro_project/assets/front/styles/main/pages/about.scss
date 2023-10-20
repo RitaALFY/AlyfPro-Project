@@ -34,7 +34,7 @@
 
 .container.integration .card .face{
   width: 300px;
-  height: 200px;
+  height: 199px;
   transition: 0.5s;
 }
 
@@ -51,6 +51,7 @@
 .container.integration .card:hover .face.face1{
   background: $orange;
   transform: translateY(0);
+  border-radius: 5px;
 }
 
 .container.integration .card .face.face1 .content{
@@ -92,7 +93,8 @@
 
 .container .card .face.face2 .content p{
   margin: 0;
-  padding-top: 2rem;
+  //padding-top: 1rem;
   //padding: 1rem;
+  font-size: 0.9em!important;
 }
 

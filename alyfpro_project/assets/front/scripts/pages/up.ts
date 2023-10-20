@@ -8,7 +8,7 @@ window.addEventListener('scroll', () => {
 
     const homeSectionBottom = homeSection.offsetTop + homeSection.offsetHeight;
 
-    if (window.scrollY > homeSectionBottom && window.scrollY > 100) { // Affiche le bouton après avoir fait défiler de 100 pixels et en dehors de la section "home"
+    if (window.scrollY > homeSectionBottom && window.scrollY > 1000) { // Affiche le bouton après avoir fait défiler de 100 pixels et en dehors de la section "home"
         scrollButton?.classList.remove('hidden');
     } else {
         scrollButton?.classList.add('hidden');
