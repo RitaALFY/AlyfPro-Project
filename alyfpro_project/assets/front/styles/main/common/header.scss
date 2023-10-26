@@ -62,3 +62,7 @@ header {
 .separator-pipe{
   color:$white;
 }
+/* pour le navbar version mobile*/
+.navbar-collapse .justify-content-end .collapse .show{
+  background-color: $gray-dark;
+}
