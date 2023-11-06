@@ -27,13 +27,11 @@
   cursor: pointer;
   display: inline-block;
   border-radius: 6px;
-
   transition: box-shadow .2s;
   overflow: hidden;
   pointer-events: auto;
   //text-transform: uppercase;
 }
-
 .btn-orange:hover{
   box-shadow: rgba(253, 80, 0, 0.5) 0 6px 16px;
   border: 1px solid $orange;

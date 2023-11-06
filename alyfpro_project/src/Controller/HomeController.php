@@ -19,6 +19,9 @@ class HomeController extends AbstractController
         ]);
     }
 
+
+
+
     #[Route('/about', name: 'app_about')]
     public function about(): Response
     {

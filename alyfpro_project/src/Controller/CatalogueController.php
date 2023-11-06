@@ -21,7 +21,6 @@ class CatalogueController extends AbstractController
             'categories' => $this->categoryRepository->findAll(),
         ]);
     }
-
     #[Route('/catalogue/show/{id}', name: 'app_catalogue_show')]
     public function listShow(int $id): Response
     {
@@ -30,7 +29,6 @@ class CatalogueController extends AbstractController
         if (!$catalogue) {
             throw new NotFoundHttpException('Sorry, catalogue not found');
         }
-
         return $this->render('front/pages/catalogue/listShow.html.twig', [
             'category' => $catalogue,
         ]);

@@ -21,7 +21,6 @@ class ContactController extends AbstractController
         $this->mailer = $mailer;
         $this->translator = $translator;
     }
-
     #[Route('/contact', name: 'app_contact')]
     public function index(Request $request): Response
     {
@@ -33,9 +32,10 @@ class ContactController extends AbstractController
             if ($form->isSubmitted() && $form->isValid()) {
                 // Traitez le formulaire ici et envoyez l'e-mail
                 $message = $form->get('VotreMessage')->getData();
+                $object = $form->get('Objet')->getData();
                 $email = (new Email())
                     ->to('rita.atmajaalfy@gmail.com')
-                    ->subject('Nouveau message de contact')
+                    ->subject($object)
                     ->text($message);
 
                 $this->mailer->send($email);
