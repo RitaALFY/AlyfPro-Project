@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -35,6 +37,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Module::class)]
+    private Collection $modules;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Intervention::class)]
+    private Collection $interventions;
+
+    #[ORM\ManyToMany(targetEntity: Speciality::class, inversedBy: 'users')]
+    private Collection $specialities;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Unavailability::class)]
+    private Collection $unavailabilities;
+
+    public function __construct()
+    {
+        $this->modules = new ArrayCollection();
+        $this->interventions = new ArrayCollection();
+        $this->specialities = new ArrayCollection();
+        $this->unavailabilities = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -157,6 +179,120 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setImage(?string $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Module>
+     */
+    public function getModules(): Collection
+    {
+        return $this->modules;
+    }
+
+    public function addModule(Module $module): static
+    {
+        if (!$this->modules->contains($module)) {
+            $this->modules->add($module);
+            $module->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeModule(Module $module): static
+    {
+        if ($this->modules->removeElement($module)) {
+            // set the owning side to null (unless already changed)
+            if ($module->getUser() === $this) {
+                $module->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Intervention>
+     */
+    public function getInterventions(): Collection
+    {
+        return $this->interventions;
+    }
+
+    public function addIntervention(Intervention $intervention): static
+    {
+        if (!$this->interventions->contains($intervention)) {
+            $this->interventions->add($intervention);
+            $intervention->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIntervention(Intervention $intervention): static
+    {
+        if ($this->interventions->removeElement($intervention)) {
+            // set the owning side to null (unless already changed)
+            if ($intervention->getUser() === $this) {
+                $intervention->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Speciality>
+     */
+    public function getSpecialities(): Collection
+    {
+        return $this->specialities;
+    }
+
+    public function addSpeciality(Speciality $speciality): static
+    {
+        if (!$this->specialities->contains($speciality)) {
+            $this->specialities->add($speciality);
+        }
+
+        return $this;
+    }
+
+    public function removeSpeciality(Speciality $speciality): static
+    {
+        $this->specialities->removeElement($speciality);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Unavailability>
+     */
+    public function getUnavailabilities(): Collection
+    {
+        return $this->unavailabilities;
+    }
+
+    public function addUnavailability(Unavailability $unavailability): static
+    {
+        if (!$this->unavailabilities->contains($unavailability)) {
+            $this->unavailabilities->add($unavailability);
+            $unavailability->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUnavailability(Unavailability $unavailability): static
+    {
+        if ($this->unavailabilities->removeElement($unavailability)) {
+            // set the owning side to null (unless already changed)
+            if ($unavailability->getUser() === $this) {
+                $unavailability->setUser(null);
+            }
+        }
 
         return $this;
     }

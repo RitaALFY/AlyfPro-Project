@@ -23,6 +23,9 @@ class Unavailability
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $label = null;
 
+    #[ORM\ManyToOne(inversedBy: 'unavailabilities')]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Unavailability
     public function setLabel(?string $label): static
     {
         $this->label = $label;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

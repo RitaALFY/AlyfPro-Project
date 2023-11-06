@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ModuleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -40,6 +42,17 @@ class Module
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $slug = null;
+
+    #[ORM\OneToMany(mappedBy: 'module', targetEntity: Session::class)]
+    private Collection $sessions;
+
+    #[ORM\ManyToOne(inversedBy: 'modules')]
+    private ?User $user = null;
+
+    public function __construct()
+    {
+        $this->sessions = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -150,6 +163,48 @@ class Module
     public function setSlug(?string $slug): static
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Session>
+     */
+    public function getSessions(): Collection
+    {
+        return $this->sessions;
+    }
+
+    public function addSession(Session $session): static
+    {
+        if (!$this->sessions->contains($session)) {
+            $this->sessions->add($session);
+            $session->setModule($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSession(Session $session): static
+    {
+        if ($this->sessions->removeElement($session)) {
+            // set the owning side to null (unless already changed)
+            if ($session->getModule() === $this) {
+                $session->setModule(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

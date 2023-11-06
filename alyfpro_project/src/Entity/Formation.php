@@ -38,6 +38,9 @@ class Formation
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $modality = null;
 
+    #[ORM\ManyToOne(inversedBy: 'formations')]
+    private ?Session $session = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -135,6 +138,18 @@ class Formation
     public function setModality(?string $modality): static
     {
         $this->modality = $modality;
+
+        return $this;
+    }
+
+    public function getSession(): ?Session
+    {
+        return $this->session;
+    }
+
+    public function setSession(?Session $session): static
+    {
+        $this->session = $session;
 
         return $this;
     }
