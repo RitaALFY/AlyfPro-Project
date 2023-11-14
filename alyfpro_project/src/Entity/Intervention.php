@@ -2,11 +2,37 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\InterventionRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: InterventionRepository::class)]
+#[ApiResource(
+    collectionOperations: [
+        'post' => [
+            'denormalization_context' => [
+                'groups' => 'intervention:post'
+            ]
+        ],
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'intervention:list'
+            ]
+        ],
+    ],
+    itemOperations: [
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'intervention:item'
+            ],
+        ],
+        'put',
+        'delete',
+    ],
+    paginationItemsPerPage: 10,
+)]
 class Intervention
 {
     #[ORM\Id]
@@ -15,30 +41,39 @@ class Intervention
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['user:item', 'user:list','intervention:item', 'intervention:list', 'intervention:post'])]
     private ?string $titre = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['intervention:item', 'intervention:list', 'intervention:post'])]
     private ?string $location = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['intervention:item', 'intervention:list', 'intervention:post'])]
     private ?string $organization = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(['intervention:item', 'intervention:list', 'intervention:post'])]
     private ?\DateTimeInterface $startAt = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(['intervention:item', 'intervention:list', 'intervention:post'])]
     private ?\DateTimeInterface $endAt = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['intervention:item', 'intervention:list', 'intervention:post'])]
     private ?float $duration = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['intervention:item', 'intervention:list', 'intervention:post'])]
     private ?string $type = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['intervention:item', 'intervention:list', 'intervention:post'])]
     private ?string $description = null;
 
     #[ORM\ManyToOne(inversedBy: 'interventions')]
+    #[Groups(['user:item', 'user:list','intervention:item', 'intervention:list', 'intervention:post'])]
     private ?User $user = null;
 
     public function getId(): ?int

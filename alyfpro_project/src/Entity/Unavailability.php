@@ -2,11 +2,14 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\UnavailabilityRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: UnavailabilityRepository::class)]
+#[ApiResource]
 class Unavailability
 {
     #[ORM\Id]
@@ -15,15 +18,23 @@ class Unavailability
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(['user:item', 'user:list', 'user:post'])]
+
     private ?\DateTimeInterface $startAt = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(['user:item', 'user:list', 'user:post'])]
+
     private ?\DateTimeInterface $endAt = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['user:item', 'user:list', 'user:post'])]
+
     private ?string $label = null;
 
     #[ORM\ManyToOne(inversedBy: 'unavailabilities')]
+    #[Groups(['user:item', 'user:list', 'user:post'])]
+
     private ?User $user = null;
 
     public function getId(): ?int

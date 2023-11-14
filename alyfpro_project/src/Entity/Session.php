@@ -2,13 +2,51 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\SessionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SessionRepository::class)]
+#[ApiResource(
+    collectionOperations: [
+        'post' => [
+            'denormalization_context' => [
+                'groups' => 'session:post'
+            ]
+        ],
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'session:list'
+            ]
+        ],
+    ],
+    itemOperations: [
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'session:item'
+            ],
+        ],
+        'put',
+        'delete',
+    ],
+    paginationItemsPerPage: 10,
+)]
+
+#[ApiFilter(
+    SearchFilter::class, properties: [
+    'title' => 'partial',
+    'reference' =>'exact',
+
+],
+)]
+
 class Session
 {
     #[ORM\Id]
@@ -17,30 +55,40 @@ class Session
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['session:item', 'session:list', 'session:post'])]
     private ?string $location = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['session:item', 'session:list', 'session:post'])]
     private ?float $duration = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(['session:item', 'session:list', 'session:post'])]
     private ?\DateTimeInterface $startAt = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(['session:item', 'session:list', 'session:post'])]
     private ?\DateTimeInterface $endAt = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Unique(message: 'La référence doit être unique. Veuillez entrer une autre référence.')]
+    #[Groups(['session:item', 'session:list', 'session:post'])]
     private ?string $reference = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['session:item', 'session:list', 'session:post'])]
     private ?string $title = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['session:item', 'session:list', 'session:post'])]
     private ?string $description = null;
 
     #[ORM\ManyToOne(inversedBy: 'sessions')]
+    #[Groups(['session:item', 'session:list', 'session:post'])]
     private ?Module $module = null;
 
     #[ORM\OneToMany(mappedBy: 'session', targetEntity: Formation::class)]
+    #[Groups(['session:item', 'session:list', 'session:post'])]
     private Collection $formations;
 
     public function __construct()

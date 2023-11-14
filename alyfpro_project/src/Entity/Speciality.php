@@ -19,10 +19,11 @@ class Speciality
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-
+    #[Groups(['user:item', 'user:list', 'user:post'])]
     private ?string $title = null;
 
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'specialities')]
+    #[Groups(['user:item', 'user:list', 'user:post'])]
     private Collection $users;
 
     public function __construct()

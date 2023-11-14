@@ -34,6 +34,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
             ],
         ],
         'put',
+        'delete',
     ],
     paginationItemsPerPage: 10,
 )]
@@ -89,7 +90,7 @@ class Module
     private ?string $slug = null;
 
     #[ORM\OneToMany(mappedBy: 'module', targetEntity: Session::class)]
-    #[Groups(['module:item', 'module:list', 'module:post'])]
+    #[Groups(['module:item', 'module:list', 'module:post', 'session:item', 'session:list'])]
     private Collection $sessions;
 
     #[ORM\ManyToOne(inversedBy: 'modules')]

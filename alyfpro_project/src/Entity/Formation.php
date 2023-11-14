@@ -2,11 +2,49 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\FormationRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: FormationRepository::class)]
+#[ApiResource(
+    collectionOperations: [
+        'post' => [
+            'denormalization_context' => [
+                'groups' => 'formation:post'
+            ]
+        ],
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'formation:list'
+            ]
+        ],
+    ],
+    itemOperations: [
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'formation:item'
+            ],
+        ],
+        'put',
+        'delete',
+    ],
+    paginationItemsPerPage: 10,
+)]
+
+#[ApiFilter(
+    SearchFilter::class, properties: [
+    'title' => 'partial',
+    'reference' =>'exact',
+
+],
+)]
+
 class Formation
 {
     #[ORM\Id]
@@ -15,30 +53,40 @@ class Formation
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['formation:item', 'formation:list', 'formation:post'])]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(['formation:item', 'formation:list', 'formation:post'])]
     private ?\DateTimeInterface $startAt = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(['formation:item', 'formation:list', 'formation:post'])]
     private ?\DateTimeInterface $endAt = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['formation:item', 'formation:list', 'formation:post'])]
     private ?float $duration = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['formation:item', 'formation:list', 'formation:post'])]
     private ?string $description = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Unique(message: 'La référence doit être unique. Veuillez entrer une autre référence.')]
+    #[Groups(['formation:item', 'formation:list', 'formation:post'])]
     private ?string $reference = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['formation:item', 'formation:list', 'formation:post'])]
     private ?string $location = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['formation:item', 'formation:list', 'formation:post'])]
     private ?string $modality = null;
 
     #[ORM\ManyToOne(inversedBy: 'formations')]
+    #[Groups(['formation:item', 'formation:list', 'formation:post'])]
     private ?Session $session = null;
 
     public function getId(): ?int
