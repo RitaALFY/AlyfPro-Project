@@ -2,12 +2,15 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\SpecialityRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: SpecialityRepository::class)]
+#[ApiResource]
 class Speciality
 {
     #[ORM\Id]
@@ -16,6 +19,7 @@ class Speciality
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+
     private ?string $title = null;
 
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'specialities')]
