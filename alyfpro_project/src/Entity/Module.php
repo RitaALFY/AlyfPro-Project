@@ -2,6 +2,9 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\ModuleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -9,6 +12,39 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ModuleRepository::class)]
+
+#[ApiResource(
+    collectionOperations: [
+        'post' => [
+            'denormalization_context' => [
+                'groups' => 'module:post'
+            ]
+        ],
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'module:list'
+            ]
+        ],
+    ],
+    itemOperations: [
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'module:item'
+            ],
+        ],
+        'put',
+    ],
+    paginationItemsPerPage: 10,
+)]
+
+#[ApiFilter(
+    SearchFilter::class, properties: [
+    'title' => 'partial',
+    'organization' =>'partial',
+
+],
+)]
+
 class Module
 {
     #[ORM\Id]

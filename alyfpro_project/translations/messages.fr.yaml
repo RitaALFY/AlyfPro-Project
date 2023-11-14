@@ -1,3 +1,19 @@
+
+entity:
+  user:
+    lastName:
+      not_blank: "Le nom doit être renseigné"
+    email:
+      not_blank: "Un email doit être renseigné"
+      email: "Renseigner un email valide"
+      unique: "Veuillez entrer un autre email"
+    password:
+      not_blank: "Le mot de passe doit être renseigné"
+      unique: "Veuillez entrer un autre mot de passe"
+    firstName:
+      not_blank: "Le prénom doit être renseigné"
+
+
 pages:
   contact:
     success_submit: 'Votre message a été bien envoyé '

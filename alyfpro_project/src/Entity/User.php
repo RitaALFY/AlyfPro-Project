@@ -2,14 +2,49 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#[ApiResource(
+    collectionOperations: [
+        'post' => [
+            'denormalization_context' => [
+                'groups' => 'user:post'
+            ]
+        ],
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'user:list'
+            ]
+        ],
+    ],
+    itemOperations: [
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'user:item'
+            ],
+        ],
+        'put',
+    ],
+    paginationItemsPerPage: 10,
+)]
+#[ApiFilter(
+    SearchFilter::class, properties: [
+    'lastName' => 'partial',
+    'firstName' =>'partial',
+
+],
+)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -18,6 +53,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
+    #[Assert\NotBlank(message: 'Un email doit être renseigné')]
+    #[Assert\Unique(message: 'Veuillez entrer un autre email')]
+    #[Groups(['user:item', 'user:list', 'user:post'])]
     private ?string $email = null;
 
     #[ORM\Column]
@@ -27,27 +65,39 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Assert\NotBlank(message: 'Le mot de passe doit être renseigné')]
+    #[Assert\Unique(message: 'Veuillez entrer un autre mot de passe')]
+    #[Groups(['user:item', 'user:list', 'user:post'])]
     private ?string $password = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\NotBlank(message: 'Le nom doit être renseigné')]
+    #[Groups(['user:item', 'user:list', 'user:post'])]
     private ?string $lastName = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\NotBlank(message: 'Le prénom doit être renseigné')]
+    #[Groups(['user:item', 'user:list', 'user:post'])]
     private ?string $firstName = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['user:item', 'user:list', 'user:post'])]
     private ?string $image = null;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Module::class)]
+    #[Groups(['user:item', 'user:list', 'user:post'])]
     private Collection $modules;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Intervention::class)]
+    #[Groups(['user:item', 'user:list', 'user:post'])]
     private Collection $interventions;
 
     #[ORM\ManyToMany(targetEntity: Speciality::class, inversedBy: 'users')]
+    #[Groups(['user:item', 'user:list', 'user:post'])]
     private Collection $specialities;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Unavailability::class)]
+    #[Groups(['user:item', 'user:list', 'user:post'])]
     private Collection $unavailabilities;
 
     public function __construct()
