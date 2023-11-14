@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ModuleRepository::class)]
 
@@ -53,36 +54,46 @@ class Module
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['user:item', 'user:list','module:item', 'module:list', 'module:post'])]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(['module:item', 'module:list', 'module:post'])]
     private ?\DateTimeInterface $startAt = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(['module:item', 'module:list', 'module:post'])]
     private ?\DateTimeInterface $endAt = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['module:item', 'module:list', 'module:post'])]
     private ?float $duration = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['module:item', 'module:list', 'module:post'])]
     private ?string $modality = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['module:item', 'module:list', 'module:post'])]
     private ?string $location = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['module:item', 'module:list', 'module:post'])]
     private ?string $organization = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['module:item', 'module:list', 'module:post'])]
     private ?string $additionalInfo = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $slug = null;
 
     #[ORM\OneToMany(mappedBy: 'module', targetEntity: Session::class)]
+    #[Groups(['module:item', 'module:list', 'module:post'])]
     private Collection $sessions;
 
     #[ORM\ManyToOne(inversedBy: 'modules')]
+    #[Groups(['module:item', 'module:list', 'module:post'])]
     private ?User $user = null;
 
     public function __construct()
