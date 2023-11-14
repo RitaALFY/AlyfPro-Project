@@ -1,0 +1,10 @@
+App\Entity\User:
+  user_{0..2}:
+    lastName: "<lastName()>"
+    firstName: "<firstName()>"
+    email (unique): "<email()>"
+    #        password is : 1234
+    password: "\\$2y\\$13\\$IxLbNOJZ2MbYHehPhynFwOun0bQ9lGy6PqXzsv/yJ0RZGW2gElBW6"
+    roles: []
+
+
