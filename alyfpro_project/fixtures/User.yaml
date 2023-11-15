@@ -1,3 +1,5 @@
+parameters:
+  hash: '$2y$13$X4dRgbQZuxbdh6OIuCLHuehoot3O2XZ0uKQ/5/M8qfeR4.Elq1OGa' #12345
 App\Entity\User:
   user_{0..2}:
     lastName: "<lastName()>"
@@ -7,4 +9,10 @@ App\Entity\User:
     password: "\\$2y\\$13\\$IxLbNOJZ2MbYHehPhynFwOun0bQ9lGy6PqXzsv/yJ0RZGW2gElBW6"
     roles: []
 
+  user_4:
+    lastName: "atmaja"
+    firstName: "rita"
+    email (unique): "rita.atmaja@gmail.com"
 
+    password: <{hash}>
+    roles: [ ]
