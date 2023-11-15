@@ -10,7 +10,30 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: SpecialityRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    collectionOperations: [
+        'post' => [
+            'denormalization_context' => [
+                'groups' => 'speciality:post'
+            ]
+        ],
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'speciality:list'
+            ]
+        ],
+    ],
+    itemOperations: [
+        'get' => [
+            'normalization_context' => [
+                'groups' => 'speciality:item'
+            ],
+        ],
+        'put',
+        'delete',
+    ],
+    paginationItemsPerPage: 10,
+)]
 class Speciality
 {
     #[ORM\Id]
@@ -19,11 +42,10 @@ class Speciality
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Groups(['user:item', 'user:list', 'user:post'])]
+    #[Groups(['speciality:item','speciality:list','speciality:post','user:item', 'user:list'])]
     private ?string $title = null;
 
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'specialities')]
-    #[Groups(['user:item', 'user:list', 'user:post'])]
     private Collection $users;
 
     public function __construct()

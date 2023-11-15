@@ -73,7 +73,7 @@ class Intervention
     private ?string $description = null;
 
     #[ORM\ManyToOne(inversedBy: 'interventions')]
-    #[Groups(['user:item', 'user:list','intervention:item', 'intervention:list', 'intervention:post'])]
+    #[Groups(['intervention:item', 'intervention:list', 'intervention:post'])]
     private ?User $user = null;
 
     public function getId(): ?int

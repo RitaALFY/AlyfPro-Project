@@ -18,23 +18,18 @@ class Unavailability
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(['user:item', 'user:list', 'user:post'])]
-
+    #[Groups(['user:item', 'user:list'])]
     private ?\DateTimeInterface $startAt = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(['user:item', 'user:list', 'user:post'])]
-
+    #[Groups(['user:item', 'user:list'])]
     private ?\DateTimeInterface $endAt = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Groups(['user:item', 'user:list', 'user:post'])]
 
     private ?string $label = null;
 
     #[ORM\ManyToOne(inversedBy: 'unavailabilities')]
-    #[Groups(['user:item', 'user:list', 'user:post'])]
-
     private ?User $user = null;
 
     public function getId(): ?int

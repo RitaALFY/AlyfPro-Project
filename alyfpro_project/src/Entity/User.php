@@ -105,7 +105,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private Collection $interventions;
 
     #[ORM\ManyToMany(targetEntity: Speciality::class, inversedBy: 'users')]
-    #[Groups(['user:item', 'user:list', 'user:post'])]
+    #[Groups(['user:item', 'user:list', 'user:post','speciality:item','speciality:list'])]
     private Collection $specialities;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Unavailability::class)]
