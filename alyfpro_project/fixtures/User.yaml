@@ -13,6 +13,11 @@ App\Entity\User:
     lastName: "atmaja"
     firstName: "rita"
     email (unique): "rita.atmaja@gmail.com"
-
     password: <{hash}>
     roles: [ ]
+  user_5:
+    lastName: "Omari"
+    firstName: "Youssef"
+    email (unique): "contact@alyfpro.fr"
+    roles: "[ROLE_ADMIN]"
+    password: <{hash}>
