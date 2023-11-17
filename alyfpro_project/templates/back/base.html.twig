@@ -5,9 +5,19 @@
 {#    <link rel="shortcut icon" type="image/jpg" href="{{ asset('images/icons/gemstone_haven.jpg') }}">#}
     {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
     {% block title %}
-        <div class="container">
+        <div class="admin-head pt-2 pb-2">
             <h2 class="admin-title">Administration</h2>
+            <div class="d-flex justify-content-around align-items-center">
+                <a class="nav-item nav-link text-white" href="{{ path('app_planning') }}">
+                    <i class="fas fa-list-squares"></i> Planning
+                </a>
+                <a class="nav-item nav-link text-white" href="{{ path('app_logout') }}">
+                    <i class="fas fa-sign-out-alt"></i> Déconnexion
+                </a>
+
+            </div>
         </div>
+
     {% endblock %}
 
     {% block stylesheets %}
@@ -18,7 +28,7 @@
         {{ encore_entry_script_tags('back_scripts') }}
     {% endblock %}
 </head>
-<body>
+<body style="background-color: #FFFFFF !important;">
 <div class="row">
     <div class="col-lg-3 col-md-3 col-sm-12 admin-menu">
         {% block menu %}
