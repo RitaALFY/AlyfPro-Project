@@ -1,0 +1,29 @@
+<div class="text-center py-2">
+    <a class="main-link" href="{{ path('app_home') }}">
+        <i class="fas fa-home"></i>
+    </a>
+</div>
+<hr>
+<div class="menu">
+    <h4>Formateurs</h4>
+    <ul class="list-unstyled ps-4">
+        <li>
+            {% include 'back/admin/common/_menu_link.html.twig' with
+                {
+                    'label': 'Les Formateurs',
+                    'pagePath': path('app_admin')
+                }
+            %}
+        </li>
+        <li>
+            {% include 'back/admin/common/_menu_link.html.twig' with
+                {
+                    'label': 'Ajouter un(e) formateur',
+                    'pagePath': path('app_admin')
+                }
+            %}
+        </li>
+    </ul>
+</div>
+
+<hr>

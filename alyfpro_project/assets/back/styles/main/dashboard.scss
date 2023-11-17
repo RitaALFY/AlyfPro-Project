@@ -1,0 +1,31 @@
+.admin-head{
+  background-color: #505050;
+}
+
+.admin-menu {
+
+  background-color:#2d2d2d ;
+
+  hr {
+    margin-left: 1rem;
+  }
+
+  .menu {
+    padding-left: 2em;
+
+    a {
+      text-decoration: none;
+      color: $gray;
+
+      &:hover {
+        color: $orange;
+      }
+
+      &.menu-active {
+        color: $orange;
+        font-size: 1.2rem;
+        text-decoration: underline;
+      }
+    }
+  }
+}
