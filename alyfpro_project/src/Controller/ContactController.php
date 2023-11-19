@@ -57,7 +57,7 @@ class ContactController extends AbstractController
             }
 
         }
-        return $this->render('front/pages/contact/dashboard.html.twig', [
+        return $this->render('front/pages/contact/index.html.twig', [
             'form' => $form->createView(),
         ]);
     }
