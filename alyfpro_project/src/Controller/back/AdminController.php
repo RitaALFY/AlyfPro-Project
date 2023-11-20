@@ -18,6 +18,7 @@ class AdminController extends AbstractController
         return $this->render('back/admin/dashboard.html.twig', [
 
             'users' => $userRepository->findBy([], ['lastName' => 'Asc'], 4),
+            'totalUsers' => $userRepository->findTotalUsers(),
         ]);
     }
 }
