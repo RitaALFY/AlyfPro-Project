@@ -1,4 +1,7 @@
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+<div class="mx-auto col-8 login-container ">
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <button class="btn-orange mb-3 pb-2 pt-2">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
+</div>

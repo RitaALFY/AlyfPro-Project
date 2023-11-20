@@ -1,46 +1,57 @@
-<!DOCTYPE html>
-
-<title>User</title>
+{% extends 'back/base.html.twig' %}
 
 {% block body %}
-    <h1>User</h1>
+    <div class="d-flex justify-content-center pb-3">
+    <h1 class="text-dark-emphasis mx-2">{{ user.lastName }} {{ user.firstName }}</h1> <div style="width: 70px; height: 70px; overflow: hidden; border-radius: 50%; border: 1px solid black">
+    {% if user.image is not empty %}
+        <img src="{{ asset('path/to/your/images/' ~ user.image) }}" alt="User Image" style="width: 100%; height: 100%; object-fit: cover;">
+    {% else %}
+        <!-- Image vide (peut être une image par défaut) -->
+        <div style="width: 100%; height: 100%; background-color: #ccc;"></div>
+    {% endif %}
+</div>
+        <a href="{{ path('app_admin_user_edit', {'id': user.id}) }}" class="btn btn-warning "><i class="fas fa-pen  "></i>Edit</a>
+</div>
+    <table class="table table-dark table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Image</th>
+            <th>Roles</th>
+            <th>Specialities</th>
 
-    <table class="table">
+
+        </tr>
+        </thead>
+
         <tbody>
             <tr>
-                <th>Id</th>
+
                 <td>{{ user.id }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
+                <td>{{ user.lastName }} {{ user.firstName }}</td>
+
                 <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <th>Roles</th>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
+
                 <td>{{ user.password }}</td>
-            </tr>
-            <tr>
-                <th>LastName</th>
-                <td>{{ user.lastName }}</td>
-            </tr>
-            <tr>
-                <th>FirstName</th>
-                <td>{{ user.firstName }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
                 <td>{{ user.image }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>
+                    {% for specialty in user.specialities %}
+                        {{ specialty.title }}
+                        {% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
             </tr>
+
         </tbody>
     </table>
+<div class="d-flex justify-content-evenly">
+    <a href="{{ path('app_admin_user_index') }}" class="btn btn-outline-dark"><i class="fa fa-arrow-left "></i>back to list</a>
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
 
-    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
 
-    {{ include('user/_delete_form.html.twig') }}
+    {{ include('back/admin/user/_delete_form.html.twig') }}</div>
 {% endblock %}

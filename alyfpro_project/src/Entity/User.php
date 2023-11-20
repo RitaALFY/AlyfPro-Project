@@ -55,8 +55,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 180, unique: true)]
     #[Assert\NotBlank(message: 'Un email doit être renseigné')]
-    #[Assert\Unique(message: 'Veuillez entrer un autre email')]
-    #[Assert\Email(message: 'L\'adresse email "{{ value }}" n\'est pas valide.')]
+//    #[Assert\Unique(message: 'Veuillez entrer un autre email')]
+//    #[Assert\Email(message: 'L\'adresse email "{{ value }}" n\'est pas valide.')]
     #[Groups(['user:item', 'user:list', 'user:post'])]
     private ?string $email = null;
 
@@ -68,7 +68,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     #[Assert\NotBlank(message: 'Le mot de passe doit être renseigné')]
-    #[Assert\Unique(message: 'Veuillez entrer un autre mot de passe')]
     #[Assert\Length(
         min: 8,
         max: 255,
@@ -76,7 +75,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         maxMessage: 'Le mot de passe ne peut pas dépasser {{ limit }} caractères.'
     )]
     #[Assert\Regex(
-        pattern: '/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
+        pattern: '/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%+*?&])[A-Za-z\d@$!%+*?&]{8,}$/',
         message: 'Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.'
     )]
     #[Groups(['user:item', 'user:list', 'user:post'])]

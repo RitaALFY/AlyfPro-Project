@@ -1,6 +1,6 @@
 <div class="text-center py-2">
-    <a class="main-link" href="{{ path('app_home') }}">
-        <i class="fas fa-home"></i>
+    <a class="main-link" href="{{ path('app_admin') }}">
+        <i class="fas fa-home" style="color: #FF9900;"></i>
     </a>
 </div>
 <hr>
@@ -19,7 +19,7 @@
             {% include 'back/admin/common/_menu_link.html.twig' with
                 {
                     'label': 'Ajouter un(e) formateur',
-                    'pagePath': path('app_admin')
+                    'pagePath': path('app_admin_user_new')
                 }
             %}
         </li>

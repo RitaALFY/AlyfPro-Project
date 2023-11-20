@@ -1,11 +1,14 @@
-<!DOCTYPE html>
+{% extends 'back/base.html.twig' %}
 
-<title>New User</title>
+
 
 {% block body %}
-    <h1>Create new User</h1>
+    <h1 class="text-dark-emphasis"><i class="fas fa-add btn btn-success "></i>Create new User</h1>
+    <div class="d-flex my-4">
+        <a href="{{ path('app_admin_user_index') }}" class="btn btn-outline-dark"><i class="fa fa-arrow-left "></i>back to list</a>
 
-    {{ include('user/_form.html.twig') }}
+    </div>
+    {{ include('back/admin/user/_form.html.twig') }}
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+
 {% endblock %}
