@@ -14,6 +14,7 @@
                 <th>LastName</th>
                 <th>FirstName</th>
                 <th>Image</th>
+                <th>Specialities</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -27,6 +28,12 @@
                 <td>{{ user.lastName }}</td>
                 <td>{{ user.firstName }}</td>
                 <td>{{ user.image }}</td>
+                <td>
+                    {% for specialty in user.specialities %}
+                        {{ specialty.title }}
+                        {% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
                 <td>
                     <a href="{{ path('app_admin_user_show', {'id': user.id}) }}"><i class="fas fa-eye"></i>show</a>
                     <a href="{{ path('app_admin_user_edit', {'id': user.id}) }}"><i class="fas fa-pen"></i>edit</a>
