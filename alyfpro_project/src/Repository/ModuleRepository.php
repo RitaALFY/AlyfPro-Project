@@ -48,30 +48,20 @@ class ModuleRepository extends ServiceEntityRepository
     public function findTotalModuleMonths(float $limit = 4): array
     {
         $result = $this->createQueryBuilder('m')
-            ->select('m.duration as duration', 'm.startAt as date')
+            ->select('SUM(m.duration) as total', 'm.startAt as date')
+            ->groupBy('date')
             ->orderBy('date', 'DESC')
             ->setMaxResults($limit)
             ->getQuery()
             ->getResult();
 
-        $monthlyTotals = [];
-
-        foreach ($result as $row) {
-            $month = $row['date']->format('n'); // Utilisez 'n' pour obtenir le mois sans le zéro initial
-
-            if (!isset($monthlyTotals[$month])) {
-                $monthlyTotals[$month] = 0;
-            }
-
-            $monthlyTotals[$month] += $row['duration'];
-        }
-
         $formattedResult = [];
 
-        foreach ($monthlyTotals as $month => $total) {
+        foreach ($result as $row) {
+            $month = (int)$row['date']->format('n'); // Utilisez 'n' pour obtenir le mois sans le zéro initial
             $formattedResult[] = [
-                'total' => $total,
-                'month' => (int)$month,
+                'total' => $row['total'],
+                'month' => $month,
             ];
         }
 
