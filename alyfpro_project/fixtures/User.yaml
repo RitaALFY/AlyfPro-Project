@@ -1,23 +1,35 @@
 parameters:
-  hash: '$2y$13$X4dRgbQZuxbdh6OIuCLHuehoot3O2XZ0uKQ/5/M8qfeR4.Elq1OGa' #12345
+  hash: '$2y$13$X4dRgbQZuxbdh6OIuCLHuehoot3O2XZ0uKQ/5/M8qfeR4.Elq1OGa'
 App\Entity\User:
-  user_{0..2}:
-    lastName: "<lastName()>"
-    firstName: "<firstName()>"
-    email (unique): "<email()>"
-    #        password is : 1234
-    password: "\\$2y\\$13\\$IxLbNOJZ2MbYHehPhynFwOun0bQ9lGy6PqXzsv/yJ0RZGW2gElBW6"
-    roles: []
 
-  user_4:
+  user_0:
+    lastName: "Omari"
+    firstName: "Youssef"
+    email (unique): "contact@alyfpro.fr"
+    roles: "[ROLE_ADMIN]"
+    password: <{hash}>
+  user_1:
     lastName: "atmaja"
     firstName: "rita"
     email (unique): "rita.atmaja@gmail.com"
     password: <{hash}>
     roles: [ ]
-  user_5:
-    lastName: "Omari"
-    firstName: "Youssef"
-    email (unique): "contact@alyfpro.fr"
-    roles: "[ROLE_ADMIN]"
+
+  user_2:
+    lastName: "Alfy"
+    firstName: "Joseph"
+    email (unique): "josephalfy84@gmail.com"
+    roles:  []
+    password: <{hash}>
+  user_3:
+    lastName: "Blanchard"
+    firstName: "Jolan"
+    email (unique): "jolan.blanchard@alyfpro.fr"
+    roles: [ ]
+    password: <{hash}>
+  user_4:
+    lastName: "Benchikha"
+    firstName: "Soukeina"
+    email (unique): "soukeina.Benchikha@alyfpro.fr"
+    roles: [ ]
     password: <{hash}>

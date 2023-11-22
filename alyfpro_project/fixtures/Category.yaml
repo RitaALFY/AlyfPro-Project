@@ -1,6 +1,6 @@
 App\Entity\Category:
   category_0:
-    title: 'Post de travail'
+    title: 'Poste de travail'
     image: '/images/catalogue/post.jpg'
   category_1:
     title: 'Linux'
