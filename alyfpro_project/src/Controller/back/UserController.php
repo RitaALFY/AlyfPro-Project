@@ -5,7 +5,9 @@ namespace App\Controller\back;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+//use App\Service\Entity\UserService;
 use App\Service\FileUploader;
+use App\Service\UserService;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,6 +21,8 @@ class UserController extends AbstractController
 {
     public function __construct(
         private FileUploader $fileUploader,
+        private UserService $userService,
+        private UserRepository $userRepository,
 
     ) { }
 
@@ -44,6 +48,7 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form->get('image')->getData();
             if ($uploadedFile !== null) {
@@ -57,9 +62,12 @@ class UserController extends AbstractController
                     )
                 );
             }
-
-            $entityManager->persist($user);
-            $entityManager->flush();
+            $this->userRepository->save(
+                $this->userService->encodeUserPassword($user),
+                true
+            );
+//            $entityManager->persist($user);
+//            $entityManager->flush();
 
             return $this->redirectToRoute('app_admin_user_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -98,6 +106,7 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form->get('image')->getData();
             if ($uploadedFile !== null) {
@@ -111,6 +120,15 @@ class UserController extends AbstractController
                     )
                 );
             }
+            // Récupérez le nouveau mot de passe depuis le formulaire
+            $newPassword = $form->get('password')->getData();
+
+            // Vérifiez si un nouveau mot de passe a été fourni
+            if ($newPassword) {
+                // Utilisez la nouvelle méthode de UserService pour hacher et mettre à jour le mot de passe
+                $this->userService->encodeAndSetUserPassword($user, $newPassword);
+            }
+
             $entityManager->flush();
 
             return $this->redirectToRoute('app_admin_user_index', [], Response::HTTP_SEE_OTHER);
