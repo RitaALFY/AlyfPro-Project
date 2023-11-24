@@ -8,28 +8,29 @@ App\Entity\User:
     email (unique): "contact@alyfpro.fr"
     roles: "[ROLE_ADMIN]"
     password: <{hash}>
-  user_1:
-    lastName: "atmaja"
-    firstName: "rita"
-    email (unique): "rita.atmaja@gmail.com"
-    password: <{hash}>
-    roles: [ ]
 
-  user_2:
+
+  user_1:
     lastName: "Alfy"
     firstName: "Joseph"
     email (unique): "josephalfy84@gmail.com"
     roles:  []
     password: <{hash}>
-  user_3:
+  user_2:
     lastName: "Blanchard"
     firstName: "Jolan"
     email (unique): "jolan.blanchard@alyfpro.fr"
     roles: [ ]
     password: <{hash}>
-  user_4:
+  user_3:
     lastName: "Benchikha"
     firstName: "Soukeina"
     email (unique): "soukeina.Benchikha@alyfpro.fr"
     roles: [ ]
     password: <{hash}>
+  user_4:
+    lastName: "atmaja"
+    firstName: "rita"
+    email (unique): "rita.atmaja@gmail.com"
+    password: <{hash}>
+    roles: [ ]

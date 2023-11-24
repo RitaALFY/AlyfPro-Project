@@ -16,15 +16,15 @@ class AdminController extends AbstractController
         ModuleRepository $moduleRepository,
 
     ): Response
-    { $totalModuleMonths = $moduleRepository->findTotalModuleMonths();
-        if (empty($totalModuleMonths)) {
-            $totalModuleMonths = [['total' => 0, 'month' => 0]];
-        }
+    {
+        $results = $moduleRepository->findTotalModuleMonths();
+
+
         return $this->render('back/admin/dashboard.html.twig', [
 
             'users' => $userRepository->findBy([], ['lastName' => 'Asc'], 6),
             'totalUsers' => $userRepository->findTotalUsers(),
-            'totalModuleMonths' => $moduleRepository->findTotalModuleMonths(),
+            'results' => $moduleRepository->findTotalModuleMonths(),
         ]);
     }
 }

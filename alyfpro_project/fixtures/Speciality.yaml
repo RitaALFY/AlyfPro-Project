@@ -1,28 +1,28 @@
 App\Entity\Speciality:
   speciality_0:
     title: 'Java'
-    users: ['@user_4']
+    users: ['@user_3']
   speciality_1:
     title: 'Algorithme'
-    users: ['@user_4']
+    users: ['@user_3']
   speciality_2:
     title: 'CPP'
     users: ['@user_0']
   speciality_3:
     title: 'Reseaux'
-    users: ['@user_2']
+    users: ['@user_1']
   speciality_4:
     title: 'Conception UML'
-    users: ['@user_0']
+    users: ['@user_2']
   speciality_5:
     title: 'Programmation'
     users: ['@user_3']
   speciality_6:
     title: 'Python'
-    users: ['@user_4']
+    users: ['@user_2']
   speciality_7:
     title: 'Langage SQL'
-    users: [ '@user_4' ]
+    users: [ '@user_3' ]
   speciality_8:
     title: 'HTML CSS'
-    users: [ '@user_3' ]
+    users: [ '@user_2' ]

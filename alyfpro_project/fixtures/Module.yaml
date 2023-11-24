@@ -1,31 +1,31 @@
 App\Entity\Module:
   module_0:
     title: 'Poste de travail'
-    startAt: <dateTime('2023-12-05')>
-    endAt:  <dateTime('2023-12-10')>
+    startAt: <dateTimeBetween('2023-11-01', NOW)>
+    endAt:  <dateTimeBetween('2023-11-24', NOW)>
     duration: 4
     modality: 'présentiel'
     location: 'lyon'
     organization: 'M2I'
     additionalInfo: '/'
-    user: '@user_4'
+    user: '@user_3'
   module_1:
     title: 'Reseaux'
-    startAt: <dateTime('2023-12-12')>
-    endAt: <dateTime('2023-12-15')>
+    startAt: <dateTimeBetween('2023-11-01', NOW)>
+    endAt: <dateTimeBetween('2023-11-24', NOW)>
     duration: 3
     modality: 'présentiel'
     location: 'lyon'
     organization: 'M2I'
     additionalInfo: '/'
-    user: '@user_2'
+    user: '@user_1'
   module_2:
     title: 'Cloud'
-    startAt: <dateTime('2024-01-04')>
-    endAt: <dateTime('2024-01-09')>
+    startAt: <dateTimeBetween('2023-11-01', NOW)>
+    endAt: <dateTimeBetween('2023-11-24', NOW)>
     duration: 4
     modality: 'A distance'
     location: '/'
     organization: 'Human booster'
     additionalInfo: '/'
-    user: '@user_3'
+    user: '@user_2'

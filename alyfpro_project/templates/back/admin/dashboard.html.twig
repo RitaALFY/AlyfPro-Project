@@ -36,10 +36,16 @@
     <h3 class="mt-2"> Nombre totale des formateurs enrgistrés </h3>
     <div class="text-bg-dark"><span style="font-weight:bolder ">[ {{ totalUsers }} ]</span></div>
     <h3 class="mt-2"> Duration totale des Modules par mois </h3>
-<div class="text-bg-dark "><span style="font-weight:bolder "> {% dump(totalModuleMonths) %}
-    {% for monthData in totalModuleMonths %}
-        {{monthData.total}}
-
-    {% endfor %}</span></div>
+<div class="text-bg-dark "><span style="font-weight:bolder ">
+{#    {% for result in results %}#}
+{#        <p>#}
+{#        Mois: {{ result.month }}, Total: {{ result.total }}#}
+{#    </p>#}
+{#    {% endfor %}#}
+        {% for result in results %}
+            <p>
+        Mois: {{ result.month}}, Total: {{ result.total }} Jour(s)
+    </p>
+        {% endfor %}</span></div>
 {% endblock %}
 
