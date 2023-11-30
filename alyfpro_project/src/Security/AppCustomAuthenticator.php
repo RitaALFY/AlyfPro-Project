@@ -52,7 +52,10 @@ class AppCustomAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('app_planning'));
+//        return new RedirectResponse($this->urlGenerator->generate('app_planning'));
+        return new RedirectResponse('http://localhost:4200/');
+        //si le projet angular est dans le même répertoire web, je peux mettre le nom du projet angular
+    // return new RedirectResponse('/angular-project');
     }
 
     protected function getLoginUrl(Request $request): string
