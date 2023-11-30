@@ -18,6 +18,12 @@ header {
 #navbarNav {
   margin-right: 5rem;
 }
+@media only screen and (max-width: 1023px) {
+  #navbarNav {
+    background-color:$gray-dark;
+    margin-right: 0;
+  }
+}
 #navbarNav ul li:not(:last-child) {
   margin-right: 30px;
 }
