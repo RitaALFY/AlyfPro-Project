@@ -25,6 +25,8 @@ class AdminController extends AbstractController
             'users' => $userRepository->findBy([], ['lastName' => 'Asc'], 6),
             'totalUsers' => $userRepository->findTotalUsers(),
             'results' => $moduleRepository->findTotalModuleMonths(),
+            'modules' => $moduleRepository->findBy([], ['startAt' => 'Desc'], 5),
+
         ]);
     }
 }

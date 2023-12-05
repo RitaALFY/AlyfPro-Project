@@ -120,12 +120,12 @@ class UserController extends AbstractController
                     )
                 );
             }
-            // Récupérez le nouveau mot de passe depuis le formulaire
+            // je récupére le nouveau mot de passe depuis le formulaire
             $newPassword = $form->get('password')->getData();
 
-            // Vérifiez si un nouveau mot de passe a été fourni
+            // je verifie si un nouveau mot de passe a été fourni
             if ($newPassword) {
-                // Utilisez la nouvelle méthode de UserService pour hacher et mettre à jour le mot de passe
+                // en fin j'autilise la nouvelle méthode de UserService pour hacher et mettre à jour le mot de passe
                 $this->userService->encodeAndSetUserPassword($user, $newPassword);
             }
 

@@ -56,10 +56,10 @@ class ModuleRepository extends ServiceEntityRepository
             ->setMaxResults($limit)
             ->getQuery()
             ->getResult();
-
         $formattedResult = [];
-
+        // Parcourt les résultatsde la requête
         foreach ($result as $row) {
+            // Extrait le mois à partir de  startAt en utilisant le format 'n'
             $month = (int)$row['date']->format('n');
             $formattedResult[] = [
                 'total' => $row['total'],

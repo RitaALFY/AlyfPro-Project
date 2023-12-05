@@ -100,12 +100,12 @@
 
 @media (max-width: 767px) {
   #about .text-gerant {
-    flex-direction: column; /* Les éléments se superposent les uns sur les autres */
+    flex-direction: column;
   }
 
   #about .card {
-    width: 100% !important; /* Forcez l'application de la largeur à 100% sur les écrans plus petits */
+    width: 100% !important;
     float: none !important;
-    /* Autres styles spécifiques aux cartes mobile ici */
+    /* Autres styles spécifiques version mobile ici */
   }
 }

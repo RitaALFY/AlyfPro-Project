@@ -1,38 +1,90 @@
 {% extends 'back/base.html.twig' %}
 
 {% block body %}
-
-
-<div class="row">
-    <div class="col-lg-6 col-md-12">
-        <h3>Formateurs</h3>
-        <table class="table table-dark table-striped">
-            <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Specialité</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for user in users %}
+    <div class="row">
+        <div >
+            <h3>Les modules récents</h3>
+            <table class="table table-dark table-striped">
+                <thead>
                 <tr>
-                    <td>
-                         <a class="main-link" href="{{ path('app_admin_user_show', {'id': user.id}) }}">
-                        {{ user.lastName }} {{ user.firstName }}
-                         </a>
-                    </td>
-                    <td>
-                        {% for specialty in user.specialities %}
-                            {{ specialty.title }}
-                            {% if not loop.last %}, {% endif %}
-                        {% endfor %}
-                    </td>
+                    <th>Nom</th>
+                    <th>Date debut</th>
+                    <th>Date fin</th>
+                    <th>Durée</th>
+                    <th>Lieu</th>
+                    <th>Type</th>
+                    <th>Formateur</th>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {% for module in modules %}
+                    <tr>
+                        <td>
+                                {{ module.title }}
+                        </td>
+                        <td>
+                            {{ module.startAt|date('Y-m-d') }}
+
+                        </td>
+                        <td>
+                            {{ module.endAt|date('Y-m-d') }}
+
+                        </td>
+                        <td>
+                            {{ module.duration }} Jour(s)
+
+                        </td>
+                        <td>
+                            {{ module.location }}
+
+                        </td>
+                        <td>
+                            {{ module.modality }}
+
+                        </td>
+                        <td>
+                            <a class="main-link" href="{{ path('app_admin_user_show', {'id': module.user.id}) }}">
+
+                            {{ module.user.lastName }} {{ module.user.firstName }}
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
+
+{#<div class="row">#}
+{#    <div class="col-lg-6 col-md-12">#}
+{#        <h3>Les modules récents</h3>#}
+{#        <table class="table table-dark table-striped">#}
+{#            <thead>#}
+{#            <tr>#}
+{#                <th>Nom</th>#}
+{#                <th>Specialité</th>#}
+{#            </tr>#}
+{#            </thead>#}
+{#            <tbody>#}
+{#            {% for user in users %}#}
+{#                <tr>#}
+{#                    <td>#}
+{#                         <a class="main-link" href="{{ path('app_admin_user_show', {'id': user.id}) }}">#}
+{#                        {{ user.lastName }} {{ user.firstName }}#}
+{#                         </a>#}
+{#                    </td>#}
+{#                    <td>#}
+{#                        {% for specialty in user.specialities %}#}
+{#                            {{ specialty.title }}#}
+{#                            {% if not loop.last %}, {% endif %}#}
+{#                        {% endfor %}#}
+{#                    </td>#}
+{#                </tr>#}
+{#            {% endfor %}#}
+{#            </tbody>#}
+{#        </table>#}
+{#    </div>#}
+{#</div>#}
     <h3 class="mt-2"> Nombre totale des formateurs enrgistrés </h3>
     <div class="text-bg-dark"><span style="font-weight:bolder ">[ {{ totalUsers }} ]</span></div>
     <h3 class="mt-2"> Duration totale des Modules par mois </h3>

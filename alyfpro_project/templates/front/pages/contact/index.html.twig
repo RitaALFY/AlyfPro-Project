@@ -51,12 +51,13 @@
                     {{ form_row(form.VotreMessage) }}
                 </div>
             </div>
-            <button id="envoyer" class="btn-orange small" type="submit">Envoyer</button>
-            <div class="col-lg-6 col-md-8 col-sm-12 mx-auto text-center">
-                <div class="my-4">
-                    {{ form_row(form.captcha) }}
+                <div class="col-lg-6 col-md-8 col-sm-12 mx-auto text-center">
+                    <div class="my-4">
+                        {{ form_row(form.captcha) }}
+                    </div>
                 </div>
-            </div>
+            <button id="envoyer" class="btn-orange small" type="submit">Envoyer</button>
+
             </div>
             {{ form_end(form) }}
         </div>
